@@ -85,6 +85,7 @@ public final class Login extends javax.swing.JFrame {
             user.setAcceso("admin");
             user.setEdad(0);
             user.setNombreCompleto("UsuarioDefault");
+            nada.contadorGlobal++;
             if(user.verificar(nombre.getText(), contra.getText(), 0)){
                 logged=nombre.getText();
                 contraLogged=contra.getText();
@@ -92,8 +93,10 @@ public final class Login extends javax.swing.JFrame {
                 menu.setVisible(true);
                 menu.setLocationRelativeTo(null);
                 this.setVisible(false);
+                nada.contadorGlobal++;
             }
             nada.contadorGlobal++;
+            
         }else{
             Usuarios user=new Admin(nombre.getText(),contra.getText());
             if(nombre.getText().isEmpty() || contra.getText().isEmpty()){
