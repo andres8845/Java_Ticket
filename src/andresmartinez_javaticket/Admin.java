@@ -16,6 +16,16 @@ public class Admin extends Usuarios{
         return -1;
     }
     
+     public static int buscarPosicion(String usuario,int acumulador){
+        if(acumulador<Usuarios.usernames.size()){
+            if(Usuarios.usernames.get(acumulador).getUsuario().equals(usuario)){
+                return acumulador;
+            }
+            return buscarPosicion(usuario,acumulador+1);
+        }
+        return -1;
+    }
+     
     public boolean verificar(String nombre, String contra,int acumulador){
         int posicion=buscar(nombre,0);
         if(posicion!=-1 && acumulador<Usuarios.usernames.size()){

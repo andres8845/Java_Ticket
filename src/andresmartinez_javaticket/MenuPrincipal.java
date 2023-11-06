@@ -64,6 +64,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(0, 0, 255));
         jButton3.setText("Reportes");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 250, 70));
 
         jButton4.setBackground(new java.awt.Color(153, 204, 255));
@@ -133,6 +138,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Reportes r = new Reportes();
+        r.setVisible(true);
+        r.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
