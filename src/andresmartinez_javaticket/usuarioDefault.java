@@ -8,21 +8,7 @@ package andresmartinez_javaticket;
  *
  * @author andre
  */
-public final class usuarioDefault {
+public class usuarioDefault {
     
-    final String usuario="admin",contra="supersecreto",acceso="admin";
-
-    public usuarioDefault(){}
-
-    public final String getUsuario() {
-        return usuario;
-    }
-
-    public final String getContra() {
-        return contra;
-    }
     
-    public final String getAcceso(){
-        return acceso;
-    }
 }

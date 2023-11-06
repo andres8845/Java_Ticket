@@ -110,12 +110,7 @@ public class AdministracionEventos extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
             Usuarios user = new Admin(Login.logged,Login.contraLogged);
-            if(Login.logged.equals("admin")){
-                crearEvento event = new crearEvento();
-                event.setVisible(true);
-                event.setLocationRelativeTo(null);
-                this.setVisible(false);
-            }else{
+           
             int posicion=user.buscar(Login.logged,0);
             if(Usuarios.usernames.get(posicion).acceso.equals("admin") || Usuarios.usernames.get(posicion).acceso.equals("contenido")){
                 crearEvento event = new crearEvento();
@@ -125,7 +120,7 @@ public class AdministracionEventos extends javax.swing.JFrame {
             }else{
                 JOptionPane.showMessageDialog(this, "Unicamente pueden acceder los administradores o contenidos! ");
             }
-            }
+            
             
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -140,12 +135,7 @@ public class AdministracionEventos extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
         Usuarios user = new Admin(Login.logged,Login.contraLogged);
-        if(Login.logged.equals("admin")){
-                editarEvento event = new editarEvento();
-                event.setVisible(true);
-                event.setLocationRelativeTo(null);
-                this.setVisible(false);
-            }else{
+       
             int posicion=user.buscar(Login.logged,0);
             if(Usuarios.usernames.get(posicion).acceso.equals("admin") || Usuarios.usernames.get(posicion).acceso.equals("contenido")){
                 editarEvento edit = new editarEvento();
@@ -155,19 +145,14 @@ public class AdministracionEventos extends javax.swing.JFrame {
             }else{
                 JOptionPane.showMessageDialog(this, "Unicamente pueden acceder los administradores o contenidos! ");
             }
-        }
+        
             
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
             Usuarios user = new Admin(Login.logged,Login.contraLogged);
-            if(Login.logged.equals("admin")){
-                eliminarEvento delete = new eliminarEvento();
-                delete.setVisible(true);
-                delete.setLocationRelativeTo(null);
-                this.setVisible(false);
-            }else{
+            
              int posicion=user.buscar(Login.logged,0);
             if(Usuarios.usernames.get(posicion).acceso.equals("admin") || Usuarios.usernames.get(posicion).acceso.equals("contenido")){
                 eliminarEvento delete = new eliminarEvento();
@@ -177,7 +162,7 @@ public class AdministracionEventos extends javax.swing.JFrame {
             }else{
                 JOptionPane.showMessageDialog(this, "Unicamente pueden acceder los administradores o contenidos! ");
             }    
-            }
+            
            
         
     }//GEN-LAST:event_jButton2ActionPerformed

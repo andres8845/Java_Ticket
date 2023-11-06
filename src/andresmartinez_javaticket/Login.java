@@ -1,6 +1,6 @@
 package andresmartinez_javaticket;
 import javax.swing.JOptionPane;
-public class Login extends javax.swing.JFrame {
+public final class Login extends javax.swing.JFrame {
 
     public Login() {
         initComponents();
@@ -79,27 +79,37 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Usuarios user=new Admin(nombre.getText(),contra.getText());
-        usuarioDefault predeterminado = new usuarioDefault();
-        if(nombre.getText().isEmpty() || contra.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Favor llenar todas las casillas!");
-        }else if(user.verificar(nombre.getText(), contra.getText(), 0)){
-            logged=nombre.getText();
-            contraLogged=contra.getText();
-            MenuPrincipal menu= new MenuPrincipal();
-            menu.setVisible(true);
-            menu.setLocationRelativeTo(null);
-            this.setVisible(false);
-        }else if(predeterminado.getUsuario().equals(nombre.getText()) && predeterminado.getContra().equals(contra.getText())){
-            logged=nombre.getText();
-            contraLogged=contra.getText();
-            MenuPrincipal menu= new MenuPrincipal();
-            menu.setVisible(true);
-            menu.setLocationRelativeTo(null);
-            this.setVisible(false);
+        if(nada.contadorGlobal==0){
+            Usuarios user=new Admin("admin","supersecreto");
+            Usuarios.usernames.add(user);
+            user.setAcceso("admin");
+            user.setEdad(0);
+            user.setNombreCompleto("UsuarioDefault");
+            if(user.verificar(nombre.getText(), contra.getText(), 0)){
+                logged=nombre.getText();
+                contraLogged=contra.getText();
+                MenuPrincipal menu= new MenuPrincipal();
+                menu.setVisible(true);
+                menu.setLocationRelativeTo(null);
+                this.setVisible(false);
+            }
+            nada.contadorGlobal++;
         }else{
+            Usuarios user=new Admin(nombre.getText(),contra.getText());
+            if(nombre.getText().isEmpty() || contra.getText().isEmpty()){
+                JOptionPane.showMessageDialog(this, "Favor llenar todas las casillas!");
+            }else if(user.verificar(nombre.getText(), contra.getText(), 0)){
+                logged=nombre.getText();
+                contraLogged=contra.getText();
+                MenuPrincipal menu= new MenuPrincipal();
+                menu.setVisible(true);
+                menu.setLocationRelativeTo(null);
+                this.setVisible(false);
+            }else{
             JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos!");
+            }
         }
+         
         
         
         

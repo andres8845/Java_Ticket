@@ -107,13 +107,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         usuarioDefault predeterminado = new usuarioDefault();
-        
-        if(predeterminado.acceso.equals("admin") && Login.logged.equals(predeterminado.acceso)){
-            AdministracionUsuarios admin = new AdministracionUsuarios();
-            admin.setVisible(true);
-            admin.setLocationRelativeTo(null);
-            this.setVisible(false);
-        }else{
+       
             Usuarios user = new Admin(Login.logged,Login.contraLogged);
             int posicion=user.buscar(Login.logged,0);
             if(Usuarios.usernames.get(posicion).acceso.equals("admin")){
@@ -124,7 +118,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }else{
                 JOptionPane.showMessageDialog(this, "Unicamente pueden acceder los administradores! ");
             }
-        }
+        
        
     }//GEN-LAST:event_jButton2ActionPerformed
 

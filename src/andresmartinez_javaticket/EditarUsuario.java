@@ -4,6 +4,8 @@
  */
 package andresmartinez_javaticket;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author andre
@@ -131,18 +133,23 @@ public class EditarUsuario extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Usuarios user = new Admin(IngresoNombre.nombreAEditar,IngresoNombre.contraAEditar);
-        int edad= Integer.parseInt(EditEdad.getText());
-        int posicion=user.buscar(IngresoNombre.nombreAEditar, 0);
+        if(user.usuario.equals("admin")){
+            JOptionPane.showMessageDialog(this, "El usuario default no puede ser editado! ");
+        }else{
+            int edad= Integer.parseInt(EditEdad.getText());
+            int posicion=user.buscar(IngresoNombre.nombreAEditar, 0);
+
+            Usuarios.usernames.get(posicion).setUsuario(EditUsuario.getText());
+            Usuarios.usernames.get(posicion).setContra(EditContra.getText());
+            Usuarios.usernames.get(posicion).setNombreCompleto(EditNombre.getText());
+            Usuarios.usernames.get(posicion).setEdad(edad);
+
+            AdministracionUsuarios menu = new AdministracionUsuarios();
+            menu.setVisible(true);
+            menu.setLocationRelativeTo(null);
+            this.setVisible(false);
+        }
         
-        Usuarios.usernames.get(posicion).setUsuario(EditUsuario.getText());
-        Usuarios.usernames.get(posicion).setContra(EditContra.getText());
-        Usuarios.usernames.get(posicion).setNombreCompleto(EditNombre.getText());
-        Usuarios.usernames.get(posicion).setEdad(edad);
-        
-        AdministracionUsuarios menu = new AdministracionUsuarios();
-        menu.setVisible(true);
-        menu.setLocationRelativeTo(null);
-        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
